@@ -1,0 +1,7 @@
+<a routerLink="login">login</a>
+<span> | </span>
+<a routerLink="registration">registration</a>
+<a routerLink="/admin">admin</a>
+<a (click)="logout()">Logout</a>
+<span>{{(isLogin$ | async) }}</span>
+<router-outlet></router-outlet>

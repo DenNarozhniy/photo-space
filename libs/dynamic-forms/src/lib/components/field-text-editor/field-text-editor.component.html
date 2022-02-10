@@ -1,0 +1,19 @@
+<ng-container
+  *ngTemplateOutlet="
+    inputTpl;
+    context: {
+      valueChanges: valueChanges$ | async,
+      touchedChanged: touchedChanged$ | async
+    }
+  "
+></ng-container>
+
+<ng-template #inputTpl>
+  <kendo-editor
+    [id]="id"
+    [formControl]="formControl"
+    class="form-control {{ classes }}"
+    [class.is-invalid]="invalid"
+    (blur)="onBlur()"
+  ></kendo-editor>
+</ng-template>

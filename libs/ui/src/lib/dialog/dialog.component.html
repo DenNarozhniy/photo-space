@@ -1,0 +1,26 @@
+<ui-row class="header" *ngIf="!hideHeader">
+  <h3>{{data.payload.name ? data.payload.name : data.payload.title}}</h3>
+  <div class="actions" *ngIf="!hideDialogClose">
+      <div class="dark cp" (click)="close()"></div>
+  </div>
+</ui-row>
+
+<div class="body">
+  <perfect-scrollbar class="ps-show-always scroll-wrap">
+      <ng-container #contentPlaceholder></ng-container>
+  </perfect-scrollbar>
+</div>
+
+<div class="footer" *ngIf="!hideFooter" matDialogActions>
+  <button *ngIf="data.payload.buttons?.dismiss" (click)="dismissClicked()">
+      {{ data.payload.buttons?.dismiss?.text }}
+  </button>
+
+  <button *ngIf="data.payload.buttons?.submit" (click)="submitClicked()">
+      {{ data.payload.buttons?.submit?.text }}
+  </button>
+
+  <button *ngIf="data.payload.buttons?.custom" (click)="customClicked()">
+      {{ data.payload.buttons?.custom?.text }}
+  </button>
+</div>

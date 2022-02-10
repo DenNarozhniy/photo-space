@@ -1,0 +1,44 @@
+<div class="main-compositor-wp">
+  <div class="compositor-header" *ngIf="showHeader">
+    <ng-content select="[header]"></ng-content>
+  </div>
+  <div class="compositor-content-wp">
+    <div
+      class="side-bar-left-wp"
+      *ngIf="leftSideBarWidth"
+      [ngClass]="{
+        'half-screen': leftSideBarWidth === 'show',
+        'full-screen': leftSideBarWidth === 'full'
+      }"
+    >
+      <ng-content select="[leftSidebar]"></ng-content>
+    </div>
+    <div class="content-wp">
+      <ng-content select="[content]"></ng-content>
+    </div>
+    <div
+      class="side-bar-right-wp"
+      *ngIf="rightSideBarWidth"
+      [ngClass]="{
+        'half-screen': rightSideBarWidth === 'show',
+        'full-screen': rightSideBarWidth === 'full'
+      }"
+    >
+      <ui-row class="sidebar-header">
+        <div class="left-side">
+        </div>
+        <div class="right-side">
+          <ui-ps-button [iconSize]="20" *ngIf="rightSideBarWidth === 'show'" [iconName]="'full-screen'" (click)="changeRightSideBarWidth('full')"></ui-ps-button>
+          <ui-ps-button [iconSize]="20" *ngIf="rightSideBarWidth === 'full'" [iconName]="'half-screen'" (click)="changeRightSideBarWidth('show')"></ui-ps-button>
+          <ui-ps-button color="warn" iconName="close" (click)="changeRightSideBarWidth()"></ui-ps-button>
+        </div>
+      </ui-row>
+      <div class="side-bar-right-inner">
+        <ng-content select="[rightSidebar]"></ng-content>
+      </div>
+    </div>
+  </div>
+  <div class="compositor-footer" *ngIf="showFooter">
+    <ng-content select="[footer]"></ng-content>
+  </div>
+</div>

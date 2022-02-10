@@ -1,0 +1,61 @@
+
+<ng-container *ngIf="(contactInfo$ | async) as info">
+  <div class="footer-wp">
+    <div class="footer-inner-wp">
+      <div class="services-and-prices">
+        <h4>Услуги и цены</h4>
+        <div class="link-container">
+          <div class="link-item">Семейная</div>
+          <div class="link-item">Репортаж</div>
+          <div class="link-item">Портрет</div>
+          <div class="link-item">Свадебная</div>
+          <div class="link-item">Love-story</div>
+        </div>
+      </div>
+
+      <div class="links-f">
+        <h4>Страницы</h4>
+        <div class="link-container">
+          <div class="link-item">Главная</div>
+          <div class="link-item">Услуги</div>
+          <div class="link-item">Портфолио</div>
+          <div class="link-item">Контакты</div>
+        </div>
+      </div>
+
+      <div class="instagram" *ngIf="info?.instagram_photos?.length">
+        <h4>INSTAGRAM</h4>
+        <div class="segment-container">
+          <ng-container *ngFor="let photo of info.instagram_photos">
+            <div class="photo-item" *ngIf="photo.isShow">
+              <a class="img-container"
+                 [href]="photo.insta_link" target="_blank"
+                 [ngStyle]="{ backgroundImage:'url(' + photo.photo_url + ')'}"></a>
+            </div>
+          </ng-container>
+
+        </div>
+      </div>
+
+      <div class="contact-us">
+        <h4>Контакты</h4>
+        <div class="link-container">
+
+          <ng-container *ngFor="let number of info.phone_numbers">
+            <a  class="link-item" [href]="'tel:' + number.number" *ngIf="number.isShow">{{ number.label }}</a>
+          </ng-container>
+
+          <div class="link-item">{{ info.email_address }}</div>
+          <div class="link-item">{{ info.country + ', г.' + info.city }}</div>
+        </div>
+      </div>
+
+
+    </div>
+  </div>
+
+  <div class="power-by-wp">
+    <span class="name">Professional photo production</span>
+    - Профессиональная фотосьемка в Киеве.
+  </div>
+</ng-container>

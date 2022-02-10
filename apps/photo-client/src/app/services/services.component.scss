@@ -1,0 +1,78 @@
+@import "../../assets/styles/styles";
+
+.services-container {
+  display: flex;
+  flex-wrap: wrap;
+  list-style: none;
+  margin: 0 auto;
+  padding: 0;
+  max-width: $max-container-width;
+
+  .service-item {
+    display: flex;
+    padding: 1rem;
+    .card {
+      background-color: white;
+      border-radius: 0.25rem;
+      box-shadow: 0 20px 40px -14px rgba(0, 0, 0, 0.25);
+      display: flex;
+      flex-direction: column;
+      min-width: 100%;
+      overflow: hidden;
+      .main-service-cover {
+        height: 280px;
+        img {
+          height: 100%;
+          width: 100%;
+          object-fit: cover;
+        }
+      }
+      .card-content {
+        padding: 1rem;
+        background: #504d57 40%;
+        .card_title {
+          color: #ffffff;
+          font-size: 1.1rem;
+          font-weight: 500;
+          letter-spacing: 1px;
+          text-transform: capitalize;
+          margin: 0px;
+        }
+        .card_text {
+          color: #ffffff;
+          font-size: 0.875rem;
+          line-height: 1.5;
+          margin-bottom: 1.25rem;
+        }
+        .btn {
+          color: #ffffff;
+          padding: 0.8rem;
+          font-size: 14px;
+          text-transform: uppercase;
+          border-radius: 4px;
+          font-weight: 400;
+          display: block;
+          width: 100%;
+          cursor: pointer;
+          border: 1px solid rgba(255, 255, 255, 0.2);
+          background: transparent;
+          &:hover {
+            background-color: rgba(255, 255, 255, 0.12);
+          }
+        }
+      }
+    }
+  }
+
+  @media (min-width: 40rem) {
+    .service-item {
+      width: 50%;
+    }
+  }
+
+  @media (min-width: 56rem) {
+    .service-item {
+      width: 33.3333%;
+    }
+  }
+}

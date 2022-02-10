@@ -1,0 +1,13 @@
+:host {
+  ::ng-deep {
+    button {
+      min-height: 30px;
+      min-width: 40px;
+      .mat-button-wrapper {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+      }
+    }
+  }
+}

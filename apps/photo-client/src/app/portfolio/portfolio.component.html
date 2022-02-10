@@ -1,0 +1,9 @@
+
+
+<div class="portfolio-wp">
+  <div class="portfolio-list-wp">
+    <div class="portfolio-item-outer" *ngFor="let item of portfolio$ | async">
+      <img [src]="item.img_cover_url.tablet" alt="" [routerLink]="['/portfolio/' + item.title_translit]">
+    </div>
+  </div>
+</div>

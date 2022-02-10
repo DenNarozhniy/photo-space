@@ -1,0 +1,13 @@
+:host {
+  width: 100%;
+  .event-new-page {
+    .container {
+      .event-new-form {
+        .event-new-actions {
+          display: flex;
+          justify-content: flex-end;
+        }
+      }
+    }
+  }
+}

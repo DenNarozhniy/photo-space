@@ -1,0 +1,34 @@
+.example-container {
+  display: flex;
+  flex-direction: column;
+  min-width: 300px;
+  box-shadow: none;
+  .mat-table-header {
+    .header-wp {
+      display: flex;
+      h2 {
+        text-align: center;
+        width: 100%;
+      }
+      .create-btn {
+        margin: 10px;
+        border-radius: .3rem;
+      }
+    }
+    .tools-wp {
+      padding: 10px;
+      display: flex;
+      justify-content: right;
+      ::ng-deep {
+        button {
+          min-width: 20px;
+          padding: 0 7px;
+        }
+      }
+    }
+  }
+}
+
+.column-checkbox-wp {
+  padding-left: 1rem;
+}

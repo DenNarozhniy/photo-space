@@ -1,0 +1,40 @@
+{
+  "compileOnSave": false,
+  "compilerOptions": {
+    "rootDir": ".",
+    "sourceMap": true,
+    "declaration": false,
+    "moduleResolution": "node",
+    "emitDecoratorMetadata": true,
+    "experimentalDecorators": true,
+    "importHelpers": true,
+    "target": "es2015",
+    "module": "esnext",
+    "typeRoots": ["node_modules/@types"],
+    "lib": ["es2017", "dom"],
+    "skipLibCheck": true,
+    "skipDefaultLibCheck": true,
+    "baseUrl": ".",
+    "paths": {
+      "@photo-space/ui": ["libs/ui/src/index.ts"],
+      "@photo-space/models": ["libs/models/src/index.ts"],
+      "@photo-space/store": ["libs/store/src/index.ts"],
+      "@photo-space/auth-store": ["libs/store/src/lib/auth/index.ts"],
+      "@photo-space/core-store": ["libs/store/src/lib/core/index.ts"],
+      "@photo-space/services": ["libs/services/src/index.ts"],
+      "@photo-space/api-services": ["libs/services/src/lib/api/index.ts"],
+      "@photo-space/environment": ["libs//environments/index.ts"],
+      "@photo-space/constants": ["libs/constants/index.ts"],
+      "@photo-space/angular-material": ["libs/angular-material/src/index.ts"],
+      "@photo-space/pipes": ["libs/pipes/src/index.ts"],
+      "@photo-space/shared-components": ["libs/shared-components/src/index.ts"],
+      "@photo-space/dialog": ["libs/ui/src/lib/dialog/index.ts"],
+      "@photo-space/row": ["libs/ui/src/lib/row/index.ts"],
+      "@photo-space/icon": ["libs/ui/src/lib/icon/index.ts"],
+      "@photo-space/button": ["libs/ui/src/lib/button/index.ts"],
+      "@photo-space/dynamic-forms": ["libs/dynamic-forms/src/index.ts"],
+      "@photo-space/dynamic-mat-table": ["libs/dynamic-mat-table/src/index.ts"]
+    }
+  },
+  "exclude": ["node_modules", "tmp"]
+}

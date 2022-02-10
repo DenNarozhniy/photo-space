@@ -1,0 +1,59 @@
+@import '../../../assets/styles/styles';
+
+.main-portfolio-wp {
+  .main-portfolio-banner {
+    img {
+      width: 100%;
+      height: auto;
+    }
+  }
+  .photo-wp {
+    margin: auto;
+    max-width: 90vw;
+    .photo-item {
+      display: flex;
+      box-sizing: border-box;
+      margin-bottom: 3rem;
+     .image-item {
+       display: flex;
+       width: 100%;
+       height: auto;
+       box-shadow: 0 5px 25px rgba(0,0,0,.25);
+     }
+      &.isDouble {
+        .image-item {
+          width: calc(50% - 1.5rem);
+          box-sizing: border-box;
+          &.img-1 {
+            margin-right: auto;
+          }
+          &.img-2 {
+            margim-left: auto;
+          }
+        }
+      }
+    }
+
+    @media (max-width: 769px) {
+      max-width: 100vw;
+      .photo-item {
+        margin: 0 1rem 1rem 1rem;
+        display: block;
+        &.isDouble {
+          .image-item {
+            width: 100%;
+            &.img-1 {
+              margin-bottom: 1rem;
+            }
+          }
+        }
+      }
+    }
+
+    @media (max-width: 460px) {
+      .photo-item {
+        margin: 0 0 1rem 0;
+      }
+    }
+  }
+}

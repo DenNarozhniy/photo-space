@@ -1,0 +1,55 @@
+@import '../../../../assets/styles/styles';
+
+.service-price-view-wp {
+  display: flex;
+  margin: 100px 0;
+  @include screen('md2') {
+    flex-direction: column;
+  }
+
+  .fare-names {
+    width: 30%;
+    @include screen('md2') {
+      width: 100%;
+    }
+    .name-item-container {
+      display: flex;
+      height: 100%;
+      .inner-name-wp {
+        width: fit-content;
+        margin: 3rem auto 0 auto;
+        .name-item-list-desktop {
+          .name-item {
+            width: 150px;
+            padding: 10px;
+            margin-bottom: 10px;
+            border-radius: 5px;
+            border: 1px solid #eeeeee;
+            cursor: pointer;
+            &.active {
+              border-color: red;
+            }
+          }
+        }
+        .name-item-list-mobile {
+          display: none;
+        }
+        @include screen('md2') {
+          .name-item-list-desktop {
+            display: none;
+          }
+          .name-item-list-mobile {
+            display: flex;
+          }
+        }
+
+      }
+    }
+  } 
+  .fare-descriptions {
+    width: 70%;
+    @include screen('md2') {
+      width: 100%;
+    }
+  }
+}

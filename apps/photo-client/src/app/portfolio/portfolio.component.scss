@@ -1,0 +1,28 @@
+@import '../../assets/styles/styles';
+
+.portfolio-list-wp {
+  display: flex;
+  flex-wrap: wrap;
+  max-width: $max-container-width;
+  margin: auto auto 50px auto;
+  justify-content: center;
+
+  .portfolio-item-outer {
+    width: 100%;
+    min-width: 350px;
+    padding: 15px;
+    height: 350px;
+    border: 1px solid grey;
+    @include min-screen('md2') {
+      width: 50%;
+    }
+    @include min-screen('lg3') {
+      width: 33.33%;
+    }
+    img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+  }
+}

@@ -1,0 +1,27 @@
+<ng-container
+  *ngTemplateOutlet="
+    inputTpl;
+    context: {
+      valueChanges: valueChanges$ | async,
+      touchedChanged: touchedChanged$ | async
+    }
+  "
+></ng-container>
+
+<ng-template #inputTpl>
+  <mat-form-field appearance="fill">
+    <mat-label>{{ field.attrs.placeholder ? field.attrs.placeholder : '' }}</mat-label>
+    <input
+      matInput
+      [id]="id"
+      [name]="name"
+      [type]="field.attrs.type || 'text'"
+      [formControl]="formControl"
+      class="form-control {{ classes }}"
+      [class.is-invalid]="invalid"
+      [placeholder]="field.attrs.placeholder ? field.attrs.placeholder : ''"
+      [autocomplete]="field.attrs.autocomplete"
+      (blur)="onBlur()"
+    />
+  </mat-form-field>
+</ng-template>

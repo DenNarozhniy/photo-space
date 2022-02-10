@@ -1,0 +1,56 @@
+.main-compositor-wp {
+  display: flex;
+  flex-direction: column;
+  .compositor-header {
+  }
+  .compositor-content-wp {
+    display: flex;
+    justify-content: center;
+    flex-direction: row;
+    position: relative;
+    min-height: 100vh;
+    .side-bar-left-wp,
+    .side-bar-right-wp {
+      width: 0;
+      overflow: hidden;
+      padding: 20px;
+      background: #f0e5cf;
+      &.half-screen {
+        width: 40%;
+        min-width: 40%;
+      }
+      &.full-screen {
+        position: absolute;
+        top: 0;
+        bottom: 0;
+        left: 0;
+        right: 0;
+        width: 100%;
+      }
+    }
+    .side-bar-left-wp {
+    }
+    .content-wp {
+    }
+    .side-bar-right-wp {
+      .side-bar-right-inner {
+        width: 100%;
+        max-width: 1000px;
+        display: flex;
+        margin: auto;
+      }
+    }
+  }
+  .compositor-footer {
+  }
+}
+
+.sidebar-header {
+  display: flex;
+  justify-content: space-between;
+  .right-side {
+    ui-ps-button {
+      margin: 0 10px 0 0;
+    }
+  }
+}

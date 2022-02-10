@@ -1,0 +1,11 @@
+<mat-icon mat-list-icon
+    *ngIf="name"
+    [svgIcon]="name"
+    class=""
+    [ngStyle]="
+        {
+            'color': color,
+            'width': size + 'px',
+            'height': size + 'px'
+        }
+    "></mat-icon>

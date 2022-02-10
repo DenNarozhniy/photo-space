@@ -1,0 +1,37 @@
+.item-container {
+    display: flex;
+    padding: 10px;
+    border: 1px solid #eeeeee;
+    border-radius: 3px;
+    margin: 5px;
+    .slider-wp {
+      padding-left: 10px;
+      display: flex;
+      app-info-popover {
+        margin-left: 15px;
+      }
+    }
+    .count-wp {
+      margin-left: auto;
+      width: 100px;
+      padding-left: 10px;
+      display: flex;
+      .increment, .decrement {
+        min-width: 26px;
+        min-height: 25px;
+        border: 1px solid #eeeeee;
+        background: #eeeeee;
+        font-size: 20px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+      }
+      .count {
+        border: 1px solid #eeeeee;
+        width: 100%;
+        margin: 0 2px;
+        text-align: center;
+      }
+    }
+  }
+  

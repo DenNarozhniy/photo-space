@@ -1,0 +1,40 @@
+@import '../../../assets/styles/styles';
+
+.card-list-wp {
+  display: flex;
+  flex-wrap: wrap;
+  max-width: $max-container-width;
+  margin: auto auto 50px auto;
+  .card-wp {
+    width:100%;
+    min-width: 350px;
+    padding: 15px;
+    @include min-screen('md2') {
+      width: 50%;
+    }
+    @include min-screen('lg3') {
+      width: 33.33%;
+    }
+    .s-card {
+      max-width: 540px;
+      border-radius: $radius-1;
+      overflow: hidden;
+      box-shadow: $box-shadow-mini;
+      margin: auto;
+      picture {
+        img {
+          width: 100%;
+          height: 300px;
+          object-fit: cover;
+        }
+      }
+      .info-container {
+        padding: 0 15px 30px 15px;
+        .card-footer {
+          display: flex;
+          justify-content: flex-end;
+        }
+      }
+    }
+  }
+}

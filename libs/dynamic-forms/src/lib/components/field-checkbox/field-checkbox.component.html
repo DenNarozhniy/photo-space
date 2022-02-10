@@ -1,0 +1,26 @@
+<ng-container
+  *ngTemplateOutlet="
+    checkbox;
+    context: {
+      valueChanges: valueChanges$ | async,
+      touchedChanged: touchedChanged$ | async
+    }
+  "
+></ng-container>
+
+<ng-template #checkbox>
+  <div
+    class="checkbox ps-checkbox"
+    [class.checkbox-beauty_active]="formControl.value"
+    [class.checkbox-beauty_error]="formControl.errors && formControl.touched"
+  >
+    <mat-checkbox
+      [formControl]="formControl"
+      [value]="formControl.value ? 1 : 0"
+      [id]="id"
+      [name]="name"
+    >
+      {{ field.attrs.placeholder }}
+    </mat-checkbox>
+  </div>
+</ng-template>

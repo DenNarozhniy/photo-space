@@ -1,0 +1,13 @@
+<div class="about-us-wp" *ngIf="aboutMe">
+  <div class="content-wp">
+    <div class="vertical-color-line"></div>
+    <h1 class="main-title">
+      <span class="first-part">{{ aboutMe.title }}</span>
+      <span class="second-part">{{ aboutMe.subTitle }}</span>
+    </h1>
+    <img class="main-img-wp" [src]="aboutMe.image"/>
+    <div class="about-us-text-container" [innerHTML]="aboutMe.text"></div>
+    <h2 class="about-me-footer">{{ aboutMe.footerText }}</h2>
+  </div>
+  <div class="right-rotate-figure"></div>
+</div>

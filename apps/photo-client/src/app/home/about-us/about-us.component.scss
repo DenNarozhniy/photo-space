@@ -1,0 +1,107 @@
+@import '../../../assets/styles/responsive.mixin';
+@import '../../../assets/styles/variables';
+
+:host {
+  display: flex;
+  justify-content: center;
+
+  .about-us-wp {
+    padding: 15px 15px 15px 150px;
+    position: relative;
+    max-width: 710px;
+
+    .content-wp {
+      .main-title {
+        display: flex;
+        flex-direction: column;
+        margin-left: -70px;
+        max-width: fit-content;
+        color: $main-color-active;
+        font-weight: 600;
+        background: $gray-1;
+        padding: 15px 0;
+
+        .second-part {
+          font-size: 1.1rem;
+          letter-spacing: 8px;
+        }
+      }
+
+      .main-img-wp {
+        width: 100%;
+      }
+
+      .vertical-color-line {
+        position: absolute;
+        background: $main-color-active;
+        width: 4px;
+        top: 0;
+        left: 110px;
+        bottom: 0;
+        z-index: -1;
+      }
+
+      .about-me-footer {
+        font-size: .5rem;
+        padding: 15px;
+        color: #DCDCDA;
+        position: absolute;
+        bottom: -15px;
+        right: 0;
+      }
+    }
+  }
+
+  @include screen('sm2') {
+    .about-us-wp {
+      padding: 15px 15px 15px 48px;
+
+      .content-wp {
+        .main-title {
+          margin: 25px auto 25px auto;
+          span {
+            text-align: center;
+          }
+        }
+
+        .vertical-color-line {
+          left: 20px;
+        }
+      }
+    }
+  }
+  @include min-screen('lg') {
+    .about-us-wp {
+      overflow: hidden;
+      max-width: $max-container-width;
+      min-height: 480px;
+
+      .content-wp {
+        max-width: 40%;
+
+        .main-img-wp {
+          position: absolute;
+          width: 41%;
+          right: 35px;
+          top: 50%;
+          height: auto;
+          transform: translateY(-50%);
+        }
+      }
+
+      .right-rotate-figure {
+        position: absolute;
+        height: 2000px;
+        width: 2000px;
+        background: $palette-5;
+        z-index: -1;
+        left: 50%;
+        top: -200%;
+        transform: rotate(-24deg);
+      }
+    }
+  }
+}
+
+
+

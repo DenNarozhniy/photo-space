@@ -1,0 +1,16 @@
+<div class="item-container" [ngClass]="{'active': sliderValue}">
+    <div class="slider-wp">
+      <mat-checkbox
+        [(ngModel)]="sliderValue"
+        [disabled]="isFroze"
+        (change)="onSlideChange($event)">
+        <div class="title">{{ title }}</div>
+      </mat-checkbox>
+      <!-- <app-info-popover [data]="moreInfo"></app-info-popover> -->
+    </div>
+    <div class="count-wp" *ngIf="showCountPart">
+      <button class="increment" [disabled]="!sliderValue" (click)="increment()">+</button>
+      <div class="count">{{countNumber}}</div>
+      <button class="decrement" [disabled]="!sliderValue" (click)="decrement()">-</button>
+    </div>
+  </div>

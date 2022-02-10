@@ -1,0 +1,50 @@
+@import '../../assets/styles/styles';
+
+.contact-us-wp {
+  padding: 15px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  .contact-parts {
+    min-height: 420px;
+    width: 100%;
+    max-width: 1200px;
+    box-shadow: $box-shadow;
+    display: flex;
+    flex-direction: row;
+    margin-bottom: 40px;
+    .contact-info, .contact-form {
+      width: 50%;
+      min-height: 100%;
+      padding: 15px;
+    }
+    .contact-info {
+      border-right: 1px solid #cccccc;
+      .contact-list {
+        list-style: none;
+        padding-left: 0;
+        text-align: center;
+        .contact-item {
+          max-width: 400px;
+          border-bottom: 1px solid #cccccc;
+          padding: 10px 0;
+          margin: 0 auto;
+          &:last-of-type {
+            border-bottom: none;
+          }
+        }
+      }
+    }
+    .contact-form {}
+    @include screen('md2') {
+      flex-direction: column;
+      .contact-info, .contact-form {
+        width: 100%;
+      }
+      .contact-info {
+        border-right: none;
+      }
+    }
+  }
+}

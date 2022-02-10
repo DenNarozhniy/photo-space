@@ -1,0 +1,21 @@
+<h2 class="h2-solo">Услуги фотографа в Киеве</h2>
+
+<div class="card-list-wp">
+  <div class="card-wp" *ngFor="let service of test">
+    <div class="s-card">
+      <picture>
+        <source media="(max-width:460px)"
+                *ngIf="service?.img_cover?.phone"
+                [srcset]="service.img_cover.phone">
+        <img [src]="service.img_cover.tablet"/>
+      </picture>
+      <div class="info-container">
+        <h2>{{service.description_title}}</h2>
+        <div class="text" [innerHTML]="service.main_description"></div>
+        <div class="card-footer">
+          <button class="my-btn" routerLink="/services/{{service.name_en}}">Подробнее...</button>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

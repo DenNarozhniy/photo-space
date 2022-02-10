@@ -1,0 +1,42 @@
+<div class="service-price-view-wp">
+  <div class="fare-names">
+    <div class="name-item-container">
+      <div class="inner-name-wp">
+        <h3>{{ faresTitle }}</h3>
+
+        <div class="name-item-list-desktop">
+
+          <div class="name-item" *ngFor="let fare of fares" [ngClass]="{'active': selectedFareId === fare._id}">
+            <div class="title" (click)="onChangeSelect(fare._id)">
+              {{fare.main_title}}
+            </div>
+          </div>
+
+          <div class="name-item" *ngIf="fareCalculatorItem"
+            [ngClass]="{'active': selectedFareId === constants.CALCULATOR}">
+            <div class="title" (click)="onChangeSelect(constants.CALCULATOR)">
+              {{fareCalculatorItem.title}}
+            </div>
+          </div>
+
+        </div>
+
+        <div class="name-item-list-mobile">
+          <mat-select  [value]="selectedFareId" (valueChange)="onChangeSelect($event)">
+            <mat-option *ngFor="let fare of fares" [value]="fare._id">
+              {{fare.main_title}}
+            </mat-option>
+            <mat-option *ngIf="fareCalculatorItem" [value]="constants.CALCULATOR">
+              {{fareCalculatorItem.title}}
+            </mat-option>
+          </mat-select>
+        </div>
+
+      </div>
+    </div>
+  </div>
+  <div class="fare-descriptions">
+    <app-fare-detail *ngIf="selectedFare" [fareData]="selectedFare">
+    </app-fare-detail>
+  </div>
+</div>

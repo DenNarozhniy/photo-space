@@ -1,0 +1,70 @@
+{
+  "npmScope": "photo-space",
+  "affected": {
+    "defaultBase": "master"
+  },
+  "implicitDependencies": {
+    "angular.json": "*",
+    "package.json": {
+      "dependencies": "*",
+      "devDependencies": "*"
+    },
+    "tsconfig.json": "*",
+    "tslint.json": "*",
+    "nx.json": "*"
+  },
+  "tasksRunnerOptions": {
+    "default": {
+      "runner": "@nrwl/workspace/tasks-runners/default",
+      "options": {
+        "cacheableOperations": ["build", "lint", "test", "e2e"]
+      }
+    }
+  },
+  "projects": {
+    "photo-client": {
+      "tags": []
+    },
+    "photo-client-e2e": {
+      "tags": [],
+      "implicitDependencies": ["photo-client"]
+    },
+    "photo-admin": {
+      "tags": []
+    },
+    "photo-admin-e2e": {
+      "tags": [],
+      "implicitDependencies": ["photo-admin"]
+    },
+    "api-server": {
+      "tags": []
+    },
+    "ui": {
+      "tags": []
+    },
+    "models": {
+      "tags": []
+    },
+    "store": {
+      "tags": []
+    },
+    "services": {
+      "tags": []
+    },
+    "angular-material": {
+      "tags": []
+    },
+    "pipes": {
+      "tags": []
+    },
+    "shared-components": {
+      "tags": []
+    },
+    "dynamic-forms": {
+      "tags": []
+    },
+    "dynamic-mat-table": {
+      "tags": []
+    }
+  }
+}

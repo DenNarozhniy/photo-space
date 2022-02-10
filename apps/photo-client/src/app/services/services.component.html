@@ -1,0 +1,24 @@
+<h2 class="h2-solo">Услуги фотографа в Киеве</h2>
+
+<div class="services-container">
+
+  <div class="service-item" *ngFor="let service of services$ | async">
+    <div class="card">
+      <picture class="main-service-cover">
+        <source media="(max-width:460px)"
+                *ngIf="service?.img_cover?.phone"
+                [srcset]="service.img_cover.phone">
+        <source media="(max-width:769px)"
+                *ngIf="service?.img_cover?.tablet"
+                [srcset]="service.img_cover.tablet">
+        <img [src]="service.img_cover.desktop"/>
+     </picture>
+      <div class="card-content">
+        <h2 class="card_title">Card Grid Layout</h2>
+        <p class="card_text">Demo of pixel perfect pure CSS simple responsive card grid layout</p>
+        <button class="btn card_btn" [routerLink]="'/services/' + service.name_en" >Read More</button>
+      </div>
+    </div>
+  </div>
+
+</div>

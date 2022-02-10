@@ -1,0 +1,17 @@
+<div class="advantages-main-wp" *ngIf="advantages?.length">
+  <h2 class="h2-solo">Преимущества работы со мной:</h2>
+  <div class="advantage-container">
+    <div class=' adv-item-wp' *ngFor="let item of advantages, let idx = index">
+      <div class="adv-item">
+        <div class="num-container">
+          {{ idx + 1 }}
+        </div>
+        <div class="adv-text-container">
+          <h3>{{ item.title }}</h3>
+          <div class="text" [innerHTML]="item.text"></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+

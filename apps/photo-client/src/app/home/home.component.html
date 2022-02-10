@@ -1,0 +1,19 @@
+<app-main-slider></app-main-slider>
+
+<app-home-services
+[services]="photoServices$ | async">
+</app-home-services>
+
+<app-about-us
+  [aboutMe]="aboutMe$ | async"
+></app-about-us>
+
+<app-advantages
+  [advantages]="advantages$ | async"
+></app-advantages>
+
+<app-instagram></app-instagram>
+
+<app-portrait-example></app-portrait-example>
+
+<app-professional-photo-info></app-professional-photo-info>

@@ -1,0 +1,31 @@
+<div class="contact-us-wp" *ngIf="(contactInfo$ | async) as contacts">
+  <h1 class="main-title">
+    Контакты фотографа - Ольги Левен
+  </h1>
+
+  <div class="contact-parts">
+    <div class="contact-info">
+      <h3 class="second-title">Как мы можем связатся</h3>
+      <div class="title-section-description">
+        Lorem ipsum dolor sit amet, consectetur adipisicing elit. Adipisci aliquid amet cumque ex facere reprehenderit sint, temporibus vel vitae voluptatum. At atque commodi consequuntur deleniti doloremque iusto magni perferendis voluptatem.
+      </div>
+      <ul class="contact-list">
+        <li class="contact-item">{{ contacts.country }}, {{ contacts.city }}</li>
+        <li class="contact-item">{{ contacts.email_address }}</li>
+        <li class="contact-item">
+          <ng-container *ngFor="let number of contacts.phone_numbers">
+            <a  class="phone-number" [href]="'tel:' + number.number" *ngIf="number.isShow">{{ number.label }}</a>
+          </ng-container>
+        </li>
+        <li class="contact-item">socials</li>
+      </ul>
+    </div>
+    <div class="contact-form">
+      <h3 class="second-title">Отправить запрос</h3>
+      <div class="title-section-description">
+        Lorem ipsum dolor sit amet, consectetur adipisicing elit. Assumenda, soluta?
+      </div>
+      <ps-send-email-form></ps-send-email-form>
+    </div>
+  </div>
+</div>

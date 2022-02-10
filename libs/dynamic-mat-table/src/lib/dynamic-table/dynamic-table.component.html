@@ -1,0 +1,72 @@
+<div style="padding: 32px" *ngIf="dataSource && columns && displayedColumns">
+  <div class="example-container mat-elevation-z8">
+
+    <div class="mat-table-header">
+      <div class="header-wp">
+        <h2>{{ mainTitle || ''}}</h2>
+        <ui-ps-button color="primary" (click)="onCreateItem.emit(true)">Create</ui-ps-button>
+      </div>
+      <div class="tools-wp">
+      </div>
+    </div>
+
+    <mat-table [dataSource]="dataSource" matSort>
+      <ng-container *ngFor="let column of columns">
+        <ng-container [ngSwitch]="column.type">
+          <ng-template [ngSwitchCase]="MATERIAL_COLUMN_TYPE.TEXT">
+            <ng-container [ngTemplateOutlet]="simpleText"
+                          [ngTemplateOutletContext]="{ $implicit: column }"></ng-container>
+          </ng-template>
+          <ng-template [ngSwitchCase]="MATERIAL_COLUMN_TYPE.CHECKBOX">
+            <ng-container [ngTemplateOutlet]="checkboxColumn"
+                          [ngTemplateOutletContext]="{ $implicit: column }"></ng-container>
+          </ng-template>
+          <ng-template [ngSwitchCase]="MATERIAL_COLUMN_TYPE.OPTIONS">
+            <ng-container [ngTemplateOutlet]="columnOptions"
+                          [ngTemplateOutletContext]="{ $implicit: column }"></ng-container>
+          </ng-template>
+        </ng-container>
+      </ng-container>
+
+      <ng-template #simpleText let-column>
+        <ng-container [cdkColumnDef]="column.key">
+          <mat-header-cell *cdkHeaderCellDef mat-sort-header>{{ column.label }}</mat-header-cell>
+          <mat-cell *cdkCellDef="let row">{{ column.cell(row) }}</mat-cell>
+        </ng-container>
+      </ng-template>
+
+      <ng-template #checkboxColumn let-column>
+        <ng-container [cdkColumnDef]="column.key">
+          <mat-header-cell *cdkHeaderCellDef>{{ column.label }}</mat-header-cell>
+          <mat-cell *cdkCellDef="let row">
+            <div class="column-checkbox-wp">
+              <mat-checkbox (click)="$event.stopPropagation()"
+                            (change)="onCheckboxChange($event, column.key, row)"
+                            [(ngModel)]="row[column.key]">
+              </mat-checkbox>
+            </div>
+          </mat-cell>
+        </ng-container>
+      </ng-template>
+
+      <ng-template #columnOptions let-column>
+        <ng-container [cdkColumnDef]="column.key">
+          <mat-header-cell *cdkHeaderCellDef></mat-header-cell>
+          <mat-cell *cdkCellDef="let row">
+            <i class="material-icons" *ngIf="column?.availableOptions?.delete"
+               (click)="deleteItem(row)">delete_forever</i>
+            <i class="material-icons" *ngIf="column?.availableOptions?.edit" (click)="editItem(row)">create</i>
+            <i class="material-icons" *ngIf="column?.availableOptions?.itemDetail"
+               (click)="itemDetails(row)">more_horiz</i>
+          </mat-cell>
+        </ng-container>
+      </ng-template>
+
+      <mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>
+      <mat-row *matRowDef="let row; columns: displayedColumns;"></mat-row>
+    </mat-table>
+    <mat-paginator [pageSizeOptions]="[5, 10, 25, 100]"></mat-paginator>
+    <div class="mat-table-footer"></div>
+
+  </div>
+</div>

@@ -1,0 +1,96 @@
+@import '../../../../../assets/styles/styles';
+:host {
+  .fare-detail-wp {
+    display: flex;
+    height: 100%;
+    @include screen('sm') {
+      flex-direction: column;
+    }
+    .main-content {
+      width: 50%;
+      display: flex;
+      justify-content: center;
+      @include screen('sm') {
+        width: 100%;
+      }
+      .nested-container {
+        box-shadow: $box-shadow;
+        display: flex;
+        flex-direction: column;
+        width: 30vw;
+        padding-bottom: 2rem;
+        .fare-title {
+          font-size: 1.6rem;
+          text-align: center;
+          line-height: 2.3rem;
+          font-weight: 400;
+          margin: 2rem 15px 2rem 15px;
+          color: #252426;
+        }
+        .price {
+          font-size: 3rem;
+          text-align: center;
+          font-weight: 500;
+          margin-bottom: 1.4rem;
+          span {
+            font-size: 1.8rem;
+          }
+        }
+        .photoSession-duration {
+          font-size: 1.3rem;
+          font-weight: 400;
+          text-align: center;
+          margin-bottom: 1.6rem;
+          span {
+            font-size: 1rem;
+          }
+        }
+        .fare-service-description-wp {
+          margin-bottom: 2rem;
+          .fare-service-description-item {
+            text-align: center;
+            font-size: 1rem;
+            line-height: 1.8rem;
+          }
+        }
+        .singleService-wp {
+          margin-bottom: 2rem;
+          .singleService-item {
+            ::ng-deep {
+              app-simple-item-with-slide {
+                .item-container {
+                  margin-left: 1rem;
+                  width: fit-content;
+                  padding: 0 10px;
+                  border: none;
+                }
+              }
+            }
+          }
+        }
+        .order-btn {
+          display: flex;
+          padding: 10px 25px;
+          margin: auto auto 0 auto;
+        }
+      }
+    }
+    .options {
+      width: 50%;
+      display: flex;
+      align-items: center;
+      overflow-y: auto;
+      @include screen('sm') {
+        width: 100%;
+      }
+      .fare-description-info-wp {
+        width: 100%;
+        .fare-description-info-item {
+        }
+      }
+      .calculator-services-wp {
+        width: 100%;
+      }
+    }
+  }
+}

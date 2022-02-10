@@ -1,0 +1,44 @@
+<ng-container
+  *ngTemplateOutlet="
+    advantageTemplate;
+    context: {
+      data: advantages$ | async
+    }
+  "
+>
+</ng-container>
+
+<ng-template #advantageTemplate>
+  <ui-template-compositor
+   (rightSideBarWidthChange)="showSideBar = $event"
+   [rightSideBarWidth]="showSideBar">
+    <photo-space-dynamic-table
+      content
+      *ngIf="
+        advantageTableConfig?.data &&
+        advantageTableConfig.displayedColumns &&
+        advantageTableConfig.columns
+      "
+      (onCheckboxChanged)="onCheckboxChanged($event)"
+      (onEditItem)="onEditAdvantage($event)"
+      (onDeleteItem)="onDeleteAdvantage($event)"
+      (onCreateItem)="onAddNewAdvantage()"
+      [data]="advantageTableConfig.data"
+      [mainTitle]="'Advantages'"
+      [saveName]="'advantages'"
+      [displayedColumnsNames]="advantageTableConfig.displayedColumnsNames"
+      [displayedColumns]="advantageTableConfig.displayedColumns"
+      [columns]="advantageTableConfig.columns"
+    >
+    </photo-space-dynamic-table>
+
+    <photo-space-content-editor
+      #formTemplate
+      rightSidebar
+      [title]="'Приемущества'"
+      (submitEvent)="onSubminData($event)"
+      [formConfig]="formConfig"
+    >
+    </photo-space-content-editor>
+  </ui-template-compositor>
+</ng-template>

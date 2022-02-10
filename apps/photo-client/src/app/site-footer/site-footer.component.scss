@@ -1,0 +1,173 @@
+@import '../../assets/styles/responsive.mixin';
+@import '../../assets/styles/variables';
+
+.footer-wp {
+  border-top: 1px solid $gray-2;
+  padding: 10px;
+  .footer-inner-wp {
+    width: 100%;
+    max-width: 1200px;
+    margin: auto;
+    min-height: 300px;
+    display: flex;
+    flex-wrap: wrap;
+    box-sizing: border-box;
+    .services-and-prices {
+      width: 22%;
+      padding: 5px;
+      box-sizing: border-box;
+    }
+    .links-f {
+      width: 17%;
+      padding: 5px;
+      box-sizing: border-box;
+    }
+    .instagram {
+      width: 36%;
+      padding: 5px;
+      box-sizing: border-box;
+      .segment-container {
+        display: flex;
+        flex-wrap: wrap;
+        max-width: 400px;
+        margin: auto;
+        .photo-item {
+          padding: 5px;
+          height: 90px;
+          box-sizing: border-box;
+          width: 33.33%;
+          .img-container {
+            display: block;
+            height: 100%;
+            background-position: center;
+            background-repeat: no-repeat;
+            background-size: cover;
+
+          }
+        }
+      }
+    }
+    .contact-us {
+      width: 25%;
+      padding: 5px;
+      box-sizing: border-box;
+    }
+  }
+}
+
+.power-by-wp {
+  text-align: center;
+}
+
+@include screen('lg') {
+  h4 {
+    text-align: center;
+  }
+  .link-item {
+    text-align: center;
+  }
+  .footer-wp {
+    .footer-inner-wp {
+      .services-and-prices {
+        order: 1;
+        min-width: 33.33%;
+      }
+      .links-f {
+        order: 2;
+        min-width: 33.33%;
+      }
+
+      .contact-us {
+        order: 3;
+        min-width: 33.33%;
+        .link-container {
+          text-align: center;
+        }
+      }
+      .instagram {
+        order: 4;
+        min-width: 100%;
+        margin-bottom: 30px;
+        .segment-container {
+          max-width: 800px;
+          justify-content: center;
+          .photo-item {
+            width: 16.6666667%;
+            min-width: 105px;
+          }
+        }
+      }
+    }
+  }
+}
+
+@include screen('md') {
+  .footer-wp {
+    .footer-inner-wp {
+      .services-and-prices {
+        min-width: 50%;
+      }
+      .links-f {
+        order: 4;
+        min-width: 100%;
+        margin-bottom: 5px;
+        .link-container {
+          display: flex;
+          flex-wrap: wrap;
+          justify-content: center;
+          .link-item {
+            padding: 4px 10px;
+          }
+        }
+      }
+
+      .contact-us {
+        order: 2;
+        min-width: 50%;
+        .link-container {
+          text-align: center;
+        }
+      }
+      .instagram {
+        .segment-container {
+          max-width: 450px;
+          .photo-item {
+            width: 33.33%;
+          }
+        }
+      }
+    }
+  }
+}
+
+@include screen('sm2') {
+  .footer-wp {
+    .footer-inner-wp {
+      .services-and-prices {
+        min-width: 100%;
+      }
+      .links-f {
+        min-width: 100%;
+      }
+
+      .contact-us {
+        min-width: 100%;
+        .link-container {
+          text-align: center;
+        }
+      }
+      .instagram {
+        min-width: 100%;
+        margin-bottom: 20px;
+        .segment-container {
+          max-width: 450px;
+          justify-content: center;
+          .photo-item {
+            width: 33.33%;
+            min-width: 105px;
+          }
+        }
+      }
+    }
+  }
+}

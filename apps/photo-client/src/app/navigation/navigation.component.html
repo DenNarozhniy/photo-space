@@ -1,0 +1,64 @@
+<div class="main-menu-wp">
+  <div class="main-menu">
+    <div class="logo-wp">
+      <!-- <app-logo></app-logo> -->
+    </div>
+    <div class="main-nav">
+      <ul class="menu-list">
+        <li class="menu-item" >
+          <a [routerLinkActive]="'active-link'"
+             [routerLinkActiveOptions]="{exact: true}"
+             [routerLink]="'/'">
+            Главная</a>
+        </li>
+        <li class="menu-item">
+          <a [routerLinkActive]="'active-link'"
+          [routerLink]="'/portfolio'">
+            Портфолио
+          </a>
+        </li>
+        <li class="menu-item">
+          <a [routerLinkActive]="'active-link'"
+          [routerLink]="'/services'">
+          Услуги
+          </a>
+        </li>
+        <li class="menu-item" >
+          <a [routerLinkActive]="'active-link'"
+             [routerLink]="'/contacts'">
+            Контакты</a>
+        </li>
+      </ul>
+    </div>
+  </div>
+</div>
+
+
+
+<div class="mobile-menu">
+  <div class="mob-header-menu-wp">
+    <div class="logo-wp-mob">
+      <!-- <app-logo [isMob]="true"></app-logo> -->
+    </div>
+    <div class="menu-mob-icon" (click)="toggleMobileMenu()">
+      <div [ngClass]="{'open': isMobMenuOpen}"
+           class="sandwich">
+        <span></span>
+        <span></span>
+        <span></span>
+        <span></span>
+        <span></span>
+        <span></span>
+      </div>
+    </div>
+  </div>
+  <div class="mob-nav-content-wp"
+       [ngClass]="{'mob-nav-content-wp-open': isMobMenuOpen}">
+    <ul class="mob-menu-list">
+      <li class="mob-menu-item" [routerLink]="'/'">Главная</li>
+      <li class="mob-menu-item">Портфолио</li>
+      <li class="mob-menu-item">Услуги</li>
+      <li class="mob-menu-item" routerLinkActive="active-link" [routerLink]="'contacts'">Контакты</li>
+    </ul>
+  </div>
+</div>

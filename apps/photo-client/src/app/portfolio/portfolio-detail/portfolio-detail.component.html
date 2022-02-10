@@ -1,0 +1,27 @@
+<div class="main-portfolio-wp" *ngIf="portfolio$ | async as portfolioData">
+
+  <picture class="main-portfolio-banner">
+    <source media="(max-width:460px)"
+            *ngIf="portfolioData.current?.img_cover_url?.phone"
+            [srcset]="portfolioData.current.img_cover_url.phone">
+    <source media="(max-width:769px)"
+            *ngIf="portfolioData.current?.img_cover_url?.tablet"
+            [srcset]="portfolioData.current.img_cover_url.tablet">
+    <img [src]="portfolioData.current?.img_cover_url.desktop"/>
+  </picture>
+
+  <h1 class="main-title" *ngIf="portfolioData?.current?.title">
+    {{ portfolioData.current.title }}
+  </h1>
+
+  <div class="photo-wp" *ngIf="portfolioData?.current?.photos?.length">
+
+    <ng-container *ngFor="let photo of portfolioData.current.photos">
+      <div class="photo-item" [ngClass]="{'isDouble': photo.isDouble }">
+        <img class="image-item img-1" [src]="photo.url_1" alt="">
+        <img class="image-item img-2" *ngIf="photo.isDouble" [src]="photo.url_2" alt="">
+      </div>
+    </ng-container>
+
+  </div>
+</div>

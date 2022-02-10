@@ -1,0 +1,21 @@
+<div class="main-service-detail-wp" *ngIf="currentService$ | async as service">
+
+  <picture class="main-service-banner">
+     <source media="(max-width:460px)"
+             *ngIf="service?.img_cover?.phone"
+             [srcset]="service.img_cover.phone">
+     <source media="(max-width:769px)"
+             *ngIf="service?.img_cover?.tablet"
+             [srcset]="service.img_cover.tablet">
+     <img [src]="service.img_cover.desktop"/>
+  </picture>
+
+  <h2 class="h2-solo" >{{ service.price_header }}</h2>
+
+  <app-service-price-view
+  [fareCalculatorItem]="service.fare_calculator_items"
+  [fares]="service.fares"
+  [faresTitle]="'Выбрать тариф'"
+  ></app-service-price-view>
+
+</div>

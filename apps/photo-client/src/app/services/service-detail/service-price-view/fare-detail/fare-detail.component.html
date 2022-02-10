@@ -1,0 +1,65 @@
+<div class="fare-detail-wp">
+  <div class="main-content">
+
+    <div class="nested-container">
+      <div class="fare-title">
+        {{ fareData.title }}
+      </div>
+      <div class="price">
+        {{ currentModel | countPriceDetail }}
+        <span>{{ fareData.currency }}</span>
+      </div>
+      <div class="photoSession-duration">{{ currentModel | countTimeDetail }} <span>час{{ (currentModel | countTimeDetail) > 1 ? 'a' : ''}}</span> </div>
+
+      <div class="description" [innerHTML]="fareData.descriptionText"></div>
+
+      <div class="fare-service-description-wp">
+        <div class="fare-service-description-item" *ngFor="let item of fareData.fareDescriptionItems">
+          {{item.main_description}}
+        </div>
+      </div>
+
+      <div class="singleService-wp" *ngIf="fareData.fareServices.length">
+        <div class="singleService-item" *ngFor="let serv of fareData.fareServices">
+          <photo-space-simple-item-with-slide
+          (onActivationService)="simpleServiceChange($event, serv)"
+            [sliderValue]="serv.isSelected"
+            [showCountPart]="false"
+            [title]="serv.serviceName">
+          </photo-space-simple-item-with-slide>
+        </div>
+      </div>
+      <button class="order-btn">Заказать</button>
+    </div>
+
+  </div>
+  <div class="options">
+
+    <div class="fare-description-info-wp" *ngIf="fareData.fareDescriptionInfo.length">
+      <div class="fare-description-info-item" *ngFor="let info of fareData.fareDescriptionInfo">
+        <ps-simple-info-item
+          [text]="info.text"
+          [title]="info.title">
+        </ps-simple-info-item>
+      </div>
+    </div>
+
+
+
+    <div class="calculator-services-wp" *ngIf="fareData.calculatorServices.length">
+      <div class="calculator-services-item" *ngFor="let service of fareData.calculatorServices">
+        <photo-space-simple-item-with-slide
+          (onActivationService)="toggleCalculatorService($event, service)"
+          (onChangeCount)="onChangeServiceCount($event, service)"
+          [sliderValue]="service.selectedByDefault"
+          [countNumber]="service.count"
+          [isFroze]="service.isFroze"
+          [moreInfo]="service.additionInfo"
+          [countStepNumber]="service.countStep"
+          [title]="service.title">
+        </photo-space-simple-item-with-slide>
+      </div>
+    </div>
+
+  </div>
+</div>
